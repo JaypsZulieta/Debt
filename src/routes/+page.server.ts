@@ -46,9 +46,12 @@ export const actions = ({
         const debtor = await debtorRecordReader.findRecordByName(name)
         .catch(() => debtorRecorder.record(name));
         const debt = await debtRecorderReader.findRecordById(id);
+        const prevDebtor = debt.getDebtor();
         await debt.setDebtor(debtor, prismaClient);
         await debt.setAmount(amount, prismaClient);
         await debt.setDescription(description, prismaClient);
+        if(await prevDebtor.countDebts(prismaClient) === 0)
+            await prevDebtor.delete(prismaClient);
     },
     delete: async (e) => {
         const formData = await e.request.formData();
