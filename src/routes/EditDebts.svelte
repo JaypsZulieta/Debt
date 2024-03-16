@@ -26,7 +26,7 @@
                 update({ reset: false });
             }
         }}>
-            <h3 class="text text-2xl font-bold mb-5 text-center">Record a Debt</h3>
+            <h3 class="text text-2xl font-bold mb-5 text-center">Update a Record</h3>
             <label for="debtor"  class="label font-semibold opacity-80">Name of Debtor</label>
             <input id="debtor" class="input input-bordered rounded-md" type="text" name="debtor" placeholder="eg. John Smith" value={debt.name} required >
             <label for="description"  class="label font-semibold opacity-80">Description of Debt</label>
